@@ -1,0 +1,3 @@
+[submodule "AO.Hook"]
+	path = AO.Hook
+	url = ../AO.Hook
