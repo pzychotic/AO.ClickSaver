@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:pzy.AO.ClickSaver" mc:Ignorable="d" x:Class="pzy.AO.ClickSaver.MainWindow"
+        Title="ClickSaver" ScrollViewer.VerticalScrollBarVisibility="Disabled" Width="Auto" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" >
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <TabControl Margin="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="10" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Disabled" Background="#FFE5E5E5">
+            <TabItem Header="Missions">
+                <Grid ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0">
+                    <Button x:Name="_btnStart" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+                    <local:MissionInfo x:Name="_missionInfo1" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <local:MissionInfo x:Name="_missionInfo2" Margin="0,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <local:MissionInfo x:Name="_missionInfo3" Margin="0,235,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <local:MissionInfo x:Name="_missionInfo4" Margin="0,340,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <local:MissionInfo x:Name="_missionInfo5" Margin="0,445,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
