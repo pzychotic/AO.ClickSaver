@@ -1,0 +1,3 @@
+# AO.ClickSaver
+The reinvention of ClickSaver, maybe...
+[WIP] Lets see where this leads to.
