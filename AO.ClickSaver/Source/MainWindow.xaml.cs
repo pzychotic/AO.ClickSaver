@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Windows;
+using EasyHook;
 
 namespace pzy.AO.ClickSaver
 {
@@ -11,9 +13,29 @@ namespace pzy.AO.ClickSaver
     /// </summary>
     public partial class MainWindow : Window
     {
+        static string _channelName = null;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            try
+            {
+                RemoteHooking.IpcCreateServer<HookInterface>( ref _channelName, WellKnownObjectMode.SingleCall );
+
+                string hookLib = Path.Combine( Path.GetDirectoryName( System.Reflection.Assembly.GetExecutingAssembly().Location ), "AO.Hook.dll" );
+
+                Process[] processes = Process.GetProcessesByName( "AnarchyOnline" );
+
+                foreach( Process process in processes )
+                {
+                    RemoteHooking.Inject( process.Id, InjectionOptions.DoNotRequireStrongName, hookLib, hookLib, _channelName );
+                }
+            }
+            catch( Exception e )
+            {
+                MessageBox.Show( "Hooking into AO failed!\n" + e.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error );
+            }
         }
 
         private void _btnStart_Click( object sender, RoutedEventArgs e )
